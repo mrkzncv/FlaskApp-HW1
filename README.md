@@ -18,6 +18,7 @@ __Работа с Api:__
 - id модели и пути, где они лежат:
 ``[s['model_path'] for s in r_n.json()[1]], [s['id'] for s in r_n.json()[1]]``
 2. Получение предсказаний конкретной модели:
+
 ``prediction = requests.get('http://192.168.1.12:5000/api/ml_models/{id}').json()``
 3. Обучение новой модели:
  ``data={'problem': 'classification', 'name': 'Random Forest', 'h_tune': False, 'X':X.tolist(), 'y':y.tolist()}``
@@ -33,8 +34,7 @@ __Работа с Api:__
 4. Удаление обученной модели:
 ``requests.delete('http://192.168.1.12:5000/api/ml_models/{id}')``
 5. Переобучение модели:
-``requests.put('http://192.168.1.12:5000/api/ml_models/4', 
-             json={'problem': 'classification', 'name': 'Random Forest', 'h_tune': True})``
+``requests.put('http://192.168.1.12:5000/api/ml_models/4', json={'problem': 'classification', 'name': 'Random Forest', 'h_tune': True})``
 
 Это релиз. При дальнейших доработках можно учесть:
 - обработку ошибок при добавлении неверных типов данных, неподходящих под задачу
