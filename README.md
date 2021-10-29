@@ -22,6 +22,7 @@ __Работа с Api:__
 ``prediction = requests.get('http://192.168.1.12:5000/api/ml_models/{id}').json()``
 
 3. Обучение новой модели:
+
  ``data={'problem': 'classification', 'name': 'Random Forest', 'h_tune': False, 'X':X.tolist(), 'y':y.tolist()}``
  ``requests.post('http://192.168.1.12:5000/api/ml_models', json=data)``
  
