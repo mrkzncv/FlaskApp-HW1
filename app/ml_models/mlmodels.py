@@ -16,14 +16,15 @@ class MLModelsDAO:
         :param id: integer: уникальный идентификатор модели
         :return: list: предсказания модели
         """
+        f_name = None
         for model in self.ml_models:
             if model['id'] == id:
                 f_name = f"models static/{model['problem']}_{model['name']}_{model['id']}.pickle"
                 trained_model = pickle.load(open(f_name, 'rb'))
                 prediction = trained_model.predict(np.array(model['X']))
                 return prediction.tolist()
-
-        raise NotImplementedError('ml_model {} does not exist'.format(id))
+        if f_name is None:
+            raise NotImplementedError('ml_model {} does not exist'.format(id))
 
     def create(self, data, is_new=True):  # пришли данные, надо присвоить id (для POST)
         """
