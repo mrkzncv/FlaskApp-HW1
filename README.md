@@ -34,8 +34,11 @@ __Работа с Api:__
    - y: список значений таргета
    
 4. Удаление обученной модели:
+
 ``requests.delete('http://192.168.1.12:5000/api/ml_models/{id}')``
+
 5. Переобучение модели:
+
 ``requests.put('http://192.168.1.12:5000/api/ml_models/4', json={'problem': 'classification', 'name': 'Random Forest', 'h_tune': True})``
 
 Это релиз. При дальнейших доработках можно учесть:
